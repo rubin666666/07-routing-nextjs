@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 
-import NoteDetails from "@/components/NoteDetails/NoteDetails";
 import { getNoteById } from "@/lib/api/notes";
+
+import NoteDetailsClient from "./NoteDetails.client";
 
 interface NoteDetailsPageProps {
   params: Promise<{
@@ -19,5 +20,5 @@ export default async function NoteDetailsPage({
     notFound();
   }
 
-  return <NoteDetails note={note} />;
+  return <NoteDetailsClient note={note} />;
 }

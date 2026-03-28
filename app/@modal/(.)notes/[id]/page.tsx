@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 
-import Modal from "@/components/Modal/Modal";
-import NotePreview from "@/components/NotePreview/NotePreview";
 import { getNoteById } from "@/lib/api/notes";
+
+import NotePreviewClient from "./NotePreview.client";
 
 interface NotePreviewModalPageProps {
   params: Promise<{
@@ -20,9 +20,5 @@ export default async function NotePreviewModalPage({
     notFound();
   }
 
-  return (
-    <Modal>
-      <NotePreview note={note} />
-    </Modal>
-  );
+  return <NotePreviewClient note={note} />;
 }

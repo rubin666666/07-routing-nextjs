@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 
-import NotesClient from "@/components/NotesClient/NotesClient";
 import { getNotes } from "@/lib/api/notes";
 import type { NoteTag } from "@/types/note";
 
+import NotesPageClient from "./Notes.client";
 import css from "./page.module.css";
 
 const allowedTags: NoteTag[] = [
@@ -51,7 +51,7 @@ export default async function NotesByTagPage({ params }: NotesByTagPageProps) {
         <h1 className={css.title}>Notes</h1>
       </div>
 
-      <NotesClient activeTag={activeTag} initialData={initialData} />
+      <NotesPageClient activeTag={activeTag} initialData={initialData} />
     </main>
   );
 }
