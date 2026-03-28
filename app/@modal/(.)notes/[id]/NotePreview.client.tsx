@@ -65,7 +65,7 @@ export default function NotePreviewClient({ noteId }: NotePreviewClientProps) {
           </header>
 
           <p className={css.content}>{note.content || "No content"}</p>
-          <p className={css.date}>Updated: {formatDate(note.updatedAt)}</p>
+          <p className={css.date}>Created: {formatDate(note.createdAt)}</p>
         </article>
       </div>
     </Modal>

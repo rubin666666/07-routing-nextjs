@@ -1,7 +1,6 @@
 import axios from "axios";
 import { queryOptions } from "@tanstack/react-query";
 
-import { getAuthToken } from "@/lib/api/auth";
 import { notehubApi } from "@/lib/api/client";
 import type {
   CreateNotePayload,
@@ -22,7 +21,11 @@ export const notesKeys = {
 };
 
 async function createAuthorizedConfig() {
-  const token = await getAuthToken();
+  const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
+
+  if (!token) {
+    throw new Error("NEXT_PUBLIC_NOTEHUB_TOKEN is not configured.");
+  }
 
   return {
     headers: {
