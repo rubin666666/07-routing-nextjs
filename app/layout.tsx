@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import Providers from "@/components/Providers/Providers";
+import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 import "./globals.css";
 
@@ -21,12 +21,12 @@ export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <Providers>
+        <TanStackProvider>
           <Header />
           {children}
           {modal}
           <Footer />
-        </Providers>
+        </TanStackProvider>
       </body>
     </html>
   );

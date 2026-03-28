@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 600;
+  color: #212529;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button {
+  align-self: flex-start;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0d6efd;
+  color: #fff;
+  cursor: pointer;
+}
