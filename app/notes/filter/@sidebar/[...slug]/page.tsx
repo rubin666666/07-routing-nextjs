@@ -1,5 +1,6 @@
-import SidebarNotes from "@/components/SidebarNotes/SidebarNotes";
 import type { NoteTag } from "@/types/note";
+
+import SidebarNotes from "../SidebarNotes";
 
 const allowedTags: Array<NoteTag | "all"> = [
   "all",

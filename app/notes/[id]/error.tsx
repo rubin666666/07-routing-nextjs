@@ -1,5 +1,7 @@
 "use client";
 
+import css from "./error.module.css";
+
 interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
@@ -7,10 +9,10 @@ interface ErrorProps {
 
 export default function Error({ error, reset }: ErrorProps) {
   return (
-    <div style={{ padding: "24px" }}>
-      <h2>Failed to load note details.</h2>
-      <p>{error.message}</p>
-      <button type="button" onClick={reset}>
+    <div className={css.wrapper}>
+      <h2 className={css.title}>Failed to load note details.</h2>
+      <p className={css.message}>{error.message}</p>
+      <button type="button" onClick={reset} className={css.button}>
         Try again
       </button>
     </div>

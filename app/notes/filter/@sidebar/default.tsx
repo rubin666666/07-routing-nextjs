@@ -1,4 +1,4 @@
-import SidebarNotes from "@/components/SidebarNotes/SidebarNotes";
+import SidebarNotes from "./SidebarNotes";
 
 export default function DefaultSidebar() {
   return <SidebarNotes activeTag="all" />;
