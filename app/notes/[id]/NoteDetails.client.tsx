@@ -1,13 +1,15 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-import type { Note } from "@/types/note";
+import { noteByIdQueryOptions } from "@/lib/api";
 
 import css from "./NoteDetails.module.css";
 
 interface NoteDetailsClientProps {
-  note: Note;
+  noteId: string;
 }
 
 function formatDate(date: string) {
@@ -17,7 +19,29 @@ function formatDate(date: string) {
   }).format(new Date(date));
 }
 
-export default function NoteDetailsClient({ note }: NoteDetailsClientProps) {
+export default function NoteDetailsClient({ noteId }: NoteDetailsClientProps) {
+  const {
+    data: note,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    ...noteByIdQueryOptions(noteId),
+    refetchOnMount: false,
+  });
+
+  if (isLoading) {
+    return <p className={css.content}>Loading note...</p>;
+  }
+
+  if (isError) {
+    return <p className={css.content}>Failed to load note: {error.message}</p>;
+  }
+
+  if (!note) {
+    notFound();
+  }
+
   return (
     <main className={css.main}>
       <div className={css.container}>

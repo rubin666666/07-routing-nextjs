@@ -21,3 +21,9 @@ export interface NotesQueryParams {
   sortBy?: "created" | "updated";
   tag?: NoteTag;
 }
+
+export interface CreateNotePayload {
+  title: string;
+  content: string;
+  tag: NoteTag;
+}
